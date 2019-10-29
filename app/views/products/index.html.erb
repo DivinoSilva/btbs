@@ -1,0 +1,110 @@
+<div class="content content-boxed">
+  <div class="block">
+    <% if flash.alert  %>
+      <div class="alert alert-danger">
+        <p><%= alert %></p>
+      </div>
+    <% end %>
+    <div class="block-header bg-gray-lighter">
+      <h3 class="block-title">Produtos</h3>
+      <button class="btn fa-primary btn-sm" data-toggle="modal" data-target="#product-form" type="button"><i class="fa fa-plus fa-2x"></i></button>
+        <div class="modal" id="product-form">
+        <div class="modal-dialog modal-md">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h3 class="modal-title">Registrar Produto</h3>
+            </div>
+            <div class="modal-body">
+              <%= form_tag products_path, method: :post, class: 'form-horizontal' do %>
+                <div class="form-group">
+                  <div class="col-sm-12">
+                    <%= label_tag :name, 'Nome', class: 'col-xs-6' %>
+                    <%= text_field_tag :name, '', class: 'form-control', placeholder: 'Digite o nome do produto', required: true %>
+                  </div>
+                  <div class="col-sm-12">
+                    <%= label_tag :manufacturer, 'Fabricante', class: 'col-xs-6' %>
+                    <%= text_field_tag :manufacturer, '', class: 'form-control', placeholder: 'Digite o fabricante do produto', required: true %>
+                  </div>
+                  <div class="col-sm-12">
+                    <%= label_tag :model, 'Modelo', class: 'col-xs-6' %>
+                    <%= text_field_tag :model, '', class: 'form-control', placeholder: 'Digite o modelo do produto', required: true %>
+                  </div>
+                </div>
+                <%= submit_tag 'Salvar', class: 'btn btn-sm btn-primary pull-right', id: 'grade' %>
+              <% end %>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="block-content">
+      <table class="table table-borderless table-striped table-vcenter">
+        <thead>
+          <tr>
+            <th class="text-center">Nome</th>
+            <th class="text-center">Fabricante</th>
+            <th class="text-center">Modelo</th>
+            <th class="text-center">Inovação</th>
+            <th class="text-center">Estilo</th>
+            <th class="text-center">Durabilidade</th>
+            <th class="text-center">-</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @products_presenter&.each do |product| %>
+            <tr>
+              <td class="text-center"> <%= product.name %> </td>
+              <td class="text-center"> <%= product.manufacturer %> </td>
+              <td class="text-center"> <%= product.model %> </td>
+              <td class="text-center"> <%= product.inovation %> </td>
+              <td class="text-center"> <%= product.style %> </td>
+              <td class="text-center"> <%= product.durability %> </td>
+              <td class="text-center">
+                <div class="text-center">
+                  <button class="btn fa-primary btn-sm" data-toggle="modal" data-target="#attachment-form-<%= product.id %>" type="button"><i class="fa fa-star fa-2x"></i></button>
+                </div>
+                <div class="modal" id="attachment-form-<%= product.id %>">
+                  <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h3 class="modal-title">Avaliar Produto</h3>
+                      </div>
+                      <div class="modal-body">
+                        <%= form_tag "ratings/", method: :post, class: 'form-horizontal',  data: { confirm: "Confirma essa nota?" } do %>
+                          <div class="form-group">
+                            <div class="col-sm-12">
+                              <strong><h5><%= product.name %></h5></strong>
+                            </div>
+                            <div class="col-sm-12">
+                              <%= label_tag :inovation, 'Inovação', class: 'col-xs-6' %>
+                              <%= text_field_tag :inovation, '', class: 'form-control', placeholder: 'Digite sua nota', required: true %>
+                            </div>
+                            <div class="col-sm-12">
+                            <%= label_tag :style, 'Estilo', class: 'col-xs-6' %>
+                            <%= text_field_tag :style, '', class: 'form-control', placeholder: 'Digite sua nota', required: true %>
+                          </div>
+                          <div class="col-sm-12">
+                          <%= label_tag :durability, 'Durabilidade', class: 'col-xs-6' %>
+                          <%= text_field_tag :durability, '', class: 'form-control', placeholder: 'Digite sua nota', required: true %>
+                        </div>
+                          </div>
+                          <%= submit_tag 'Votar', class: 'btn btn-sm btn-primary pull-right', id: 'grade' %>
+                          <%= hidden_field_tag :product_id, product.id %>
+                        <% end %>
+                        <div class="clearfix"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
