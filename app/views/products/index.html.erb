@@ -5,6 +5,8 @@
         <p><%= alert %></p>
       </div>
     <% end %>
+    <%= link_to 'Register with Linkedin', '/auth/linkedin' %>
+
     <div class="block-header bg-gray-lighter">
       <h3 class="block-title">Produtos</h3>
       <button class="btn fa-primary btn-sm" data-toggle="modal" data-target="#product-form" type="button"><i class="fa fa-plus fa-2x"></i></button>
@@ -56,7 +58,7 @@
         <tbody>
           <% @products_presenter&.each do |product| %>
             <tr>
-              <td class="text-center"> <%= product.name %> </td>
+              <td class="text-center"> <%= link_to product.name, rating_path(product.id) %> </td>
               <td class="text-center"> <%= product.manufacturer %> </td>
               <td class="text-center"> <%= product.model %> </td>
               <td class="text-center"> <%= product.inovation %> </td>

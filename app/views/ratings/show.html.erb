@@ -1,0 +1,28 @@
+<div class="content content-boxed">
+  <div class="block">
+    <div class="block-header bg-gray-lighter">
+      <h3 class="block-title">Avaliações de <%= @product.name %></h3>
+    </div>
+  
+    <div class="block-content">
+      <table class="table table-borderless table-striped table-vcenter">
+        <thead>
+          <tr>
+            <th class="text-center">Titulo</th>
+            <th class="text-center">Nota</th>
+            <th class="text-center">Data</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @ratings&.each do |rating| %>
+            <tr>
+              <td class="text-center"> <%= rating.feature %> </td>
+              <td class="text-center"> <%= rating.grade %> </td>
+              <td class="text-center"> <%=l rating.created_at, format: :short %> </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

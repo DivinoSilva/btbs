@@ -1,4 +1,9 @@
 class RatingsController < ApplicationController
+  def show
+    @product = Product.find(params['id'])
+    @ratings = @product.ratings
+  end
+
   def create
     product = Product.find(params['product_id'])
 

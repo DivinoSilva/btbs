@@ -17,7 +17,7 @@ source 'https://rails-assets.org' do
   # gem 'rails-assets-imageviewer'
   # gem 'rails-assets-jquery-maskedinput'
   # gem 'rails-assets-moment'
-  # gem 'rails-assets-bootstrap-datetimepicker-3'
+  gem 'rails-assets-bootstrap-datetimepicker-3'
 end
 gem 'bootstrap-toggle-rails', '~> 2.2', '>= 2.2.1.0'
 gem 'pry'
