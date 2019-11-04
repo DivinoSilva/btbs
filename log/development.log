@@ -6088,3 +6088,17 @@ Redirected to http://localhost:3000/products
 Completed 302 Found in 117068735ms (ActiveRecord: 0.0ms)
 
 
+Started GET "/products" for ::1 at 2019-11-04 11:13:04 -0200
+  [1m[35m (54.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (66.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (2.5ms)[0m  [1m[34mSELECT `products`.* FROM `products`[0m
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mRating Load (1.5ms)[0m  [1m[34mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`product_id` = 1[0m
+  [1m[36mRating Load (0.4ms)[0m  [1m[34mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`product_id` = 2[0m
+  [1m[36mRating Load (0.5ms)[0m  [1m[34mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`product_id` = 3[0m
+  [1m[36mRating Load (0.6ms)[0m  [1m[34mSELECT `ratings`.* FROM `ratings` WHERE `ratings`.`product_id` = 4[0m
+  Rendered products/index.html.erb within layouts/application (88.5ms)
+Completed 200 OK in 596ms (Views: 461.7ms | ActiveRecord: 93.9ms)
+
+
