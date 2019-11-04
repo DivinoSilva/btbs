@@ -21,11 +21,13 @@ source 'https://rails-assets.org' do
 end
 
 group :development, :test do
-  gem 'rspec-rails'
-  gem 'factory_girl_rails'
+  gem 'rspec', '~> 3.5.0.beta4'
+  gem 'rspec-rails', '~> 3.5.0.beta4'
+  gem "factory_bot_rails"
   gem 'shoulda-matchers'
 end
 
+gem 'rake', '< 11'
 gem 'bootstrap-toggle-rails', '~> 2.2', '>= 2.2.1.0'
 gem 'pry'
 gem 'rails', '~> 5.1.7'
