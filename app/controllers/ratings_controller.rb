@@ -1,4 +1,6 @@
 class RatingsController < ApplicationController
+  before_action :authenticate_user!
+
   def show
     @product = Product.find(params['id'])
     @ratings = @product.ratings

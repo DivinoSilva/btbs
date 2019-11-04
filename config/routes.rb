@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :products
   resources :ratings
   get '/auth/:provider/callback', to: 'oauth#callback', as: 'oauth_callback'
