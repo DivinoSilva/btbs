@@ -1,0 +1,9 @@
+development:
+  app_id: 77w8210a362te3
+  app_secret: PjRlbEwt9TXyUwEN
+test:
+  app_id: 77w8210a362te3
+  app_secret: PjRlbEwt9TXyUwEN
+production:
+  app_id: <%= ENV['APP_ID'] %>
+  app_secret: <%= ENV['APP_SECRET'] %>
