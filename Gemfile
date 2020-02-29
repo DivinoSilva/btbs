@@ -27,7 +27,7 @@ group :development, :test do
   gem 'shoulda-matchers'
 end
 
-gem 'rake', '< 11'
+gem 'rake', '< 13'
 gem 'bootstrap-toggle-rails', '~> 2.2', '>= 2.2.1.0'
 gem 'pry'
 gem 'rails', '~> 5.1.7'
